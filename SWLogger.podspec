@@ -19,8 +19,8 @@ This cocoapod facilitates some common things required in modern logging framewor
                    DESC
 
   s.homepage     = 'http://github.com/parrotbait/SWLogger'
-  s.source = { :git => 'https://github.com/parrotbait/SWLogger.git', :tag => '#{s.version}'}
-  s.source_files  = '${POD_NAME}/${POD_NAME}/*.{swift}'
+  s.source = { :git => 'https://github.com/parrotbait/SWLogger.git', :tag => s.version.to_s}
+  s.source_files  = 'SWLogger/SWLogger/*.{swift}'
 
   s.license      = 'MIT'
 
