@@ -1,4 +1,4 @@
-# SwiftLogger
+# SWLogger
 A simple Swift Logger
 WARNING: This is pretty early in development, stable so far in all tests. 
 See TODO section for more.
