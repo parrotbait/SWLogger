@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D709ABA31F65C67E00CD546B /* SWLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D709AB991F65C67E00CD546B /* SWLogger.framework */; };
-		D709ABA81F65C67E00CD546B /* SWLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABA71F65C67E00CD546B /* SWLoggerTests.swift */; };
 		D709ABB81F65C72C00CD546B /* DefaultLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB31F65C72C00CD546B /* DefaultLogHandler.swift */; };
 		D709ABB91F65C72C00CD546B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB41F65C72C00CD546B /* Log.swift */; };
 		D709ABBA1F65C72C00CD546B /* LogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB51F65C72C00CD546B /* LogHandler.swift */; };
@@ -31,7 +30,6 @@
 		D709AB991F65C67E00CD546B /* SWLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D709AB9D1F65C67E00CD546B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D709ABA21F65C67E00CD546B /* SWLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SWLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D709ABA71F65C67E00CD546B /* SWLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWLoggerTests.swift; sourceTree = "<group>"; };
 		D709ABA91F65C67E00CD546B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D709ABB31F65C72C00CD546B /* DefaultLogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLogHandler.swift; sourceTree = "<group>"; };
 		D709ABB41F65C72C00CD546B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 		D709ABA61F65C67E00CD546B /* SWLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				D709ABA71F65C67E00CD546B /* SWLoggerTests.swift */,
 				D709ABA91F65C67E00CD546B /* Info.plist */,
 			);
 			path = SWLoggerTests;
@@ -226,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D709ABA81F65C67E00CD546B /* SWLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
