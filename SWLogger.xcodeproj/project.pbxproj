@@ -13,7 +13,7 @@
 		D709ABBA1F65C72C00CD546B /* LogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB51F65C72C00CD546B /* LogHandler.swift */; };
 		D709ABBB1F65C72C00CD546B /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB61F65C72C00CD546B /* LogLevel.swift */; };
 		D709ABBC1F65C72C00CD546B /* LogLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB71F65C72C00CD546B /* LogLine.swift */; };
-		D709ABD11F65CBD800CD546B /* SWLogger.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D709ABD01F65CBD800CD546B /* SWLogger.podspec */; };
+		D7CA96D01F798E7A00742A34 /* SWLogger.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D7CA96CF1F798E7A00742A34 /* SWLogger.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,7 @@
 		D709ABB51F65C72C00CD546B /* LogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogHandler.swift; sourceTree = "<group>"; };
 		D709ABB61F65C72C00CD546B /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		D709ABB71F65C72C00CD546B /* LogLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLine.swift; sourceTree = "<group>"; };
-		D709ABD01F65CBD800CD546B /* SWLogger.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SWLogger.podspec; path = ../../SWLogger/SWLogger.podspec; sourceTree = "<group>"; };
+		D7CA96CF1F798E7A00742A34 /* SWLogger.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SWLogger.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 		D709AB8F1F65C67E00CD546B = {
 			isa = PBXGroup;
 			children = (
-				D709ABD01F65CBD800CD546B /* SWLogger.podspec */,
+				D7CA96CF1F798E7A00742A34 /* SWLogger.podspec */,
 				D709AB9B1F65C67E00CD546B /* SWLogger */,
 				D709ABA61F65C67E00CD546B /* SWLoggerTests */,
 				D709AB9A1F65C67E00CD546B /* Products */,
@@ -193,7 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D709ABD11F65CBD800CD546B /* SWLogger.podspec in Resources */,
+				D7CA96D01F798E7A00742A34 /* SWLogger.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
