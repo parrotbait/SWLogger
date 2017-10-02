@@ -31,7 +31,7 @@ public class Log {
     }
     
     public class func removeHandler(_ handler : LogHandler) {
-        // TODO: figure this out
+        logHandlers = logHandlers.filter() { $0 !== handler }
     }
     
     public class func log(message: String,
