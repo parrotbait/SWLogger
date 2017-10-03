@@ -63,6 +63,7 @@ class LoggerTests : XCTestCase {
         Log.enableDefaultLogHandler = false
     }
     
+    // Test defaults
     func testA1ValidateDefaults() {
         XCTAssertFalse(Log.enableDefaultLogHandler)
 #if DEBUG
@@ -72,6 +73,7 @@ class LoggerTests : XCTestCase {
 #endif
     }
     
+    // Test adding and removing handlers
     func testAHandlerAddRemove() {
         let handler = TestLogger()
         XCTAssertFalse(Log.hasHandler(handler))
@@ -82,11 +84,13 @@ class LoggerTests : XCTestCase {
         XCTAssertFalse(Log.hasHandler(handler))
     }
     
+    // Test logging without any handler enabled
     func testBNoHandlerLog() {
         Log.d("")
         Log.d("Some content")
     }
     
+    // Test changing level and verifying it's changed successfully
     func testB1TestChangeLogLevel() {
         let originalLevel = Log.getLevel()
         Log.setLevel(LogLevel.verbose)
@@ -108,6 +112,7 @@ class LoggerTests : XCTestCase {
         XCTAssertEqual(Log.getLevel(), originalLevel)
     }
     
+    // Test adding and removing of a handler
     func testCHandlerLoggingAfterRemove() {
         let handler = TestLogger()
         Log.d("Some content")
@@ -116,6 +121,7 @@ class LoggerTests : XCTestCase {
         XCTAssertFalse(handler.didLog)
     }
     
+    // Test message, tag and message level
     func testDHandlerDebugLogging() {
         let wrapper = TestLoggerWrapper()
         let handler = wrapper.handler
@@ -137,6 +143,7 @@ class LoggerTests : XCTestCase {
         handler.reset()
     }
     
+    // Test tags - make sure they come through ok
     func testEHandlerDebugLoggingTag() {
         let levelWrapper = TestLogLevelWrapper(level: LogLevel.debug)
         
@@ -194,6 +201,7 @@ class LoggerTests : XCTestCase {
         handler.reset()
     }
     
+    // Test the log level settting
     func testFHandlerTestVerbosity() {
         let levelWrapper = TestLogLevelWrapper(level: LogLevel.error)
         
@@ -242,5 +250,108 @@ class LoggerTests : XCTestCase {
         
         XCTAssertNotNil(handler.messageLevel)
         XCTAssertEqual(handler.messageLevel, LogLevel.error)
+    }
+    
+    // Test LogLine attributes (file, function, line)
+    func testGHandlerTestLogLine() {
+        let levelWrapper = TestLogLevelWrapper(level: LogLevel.debug)
+        
+        let wrapper = TestLoggerWrapper()
+        let handler = wrapper.handler
+        
+        let message1 = "Test"
+        let tag1 = "TAG1"
+        let expectedFile = #file
+        let expectedFunction = #function
+        let expectedLine = #line + 1
+        Log.e(message1, tag1)
+        XCTAssertTrue(handler.didLog)
+        
+        XCTAssertNotNil(handler.messageLog)
+        XCTAssertEqual(handler.messageLog?.line, expectedLine)
+        XCTAssertEqual(handler.messageLog?.filename, expectedFile)
+        XCTAssertEqual(handler.messageLog?.funcName, expectedFunction)
+        // TESTING THIS IS TRICKY - XCTAssertEqual(handler.messageLog?.column, expectedColumn)
+    }
+    
+    // Test filtering log messages
+    func testHLogTagFilters() {
+        let levelWrapper = TestLogLevelWrapper(level: LogLevel.debug)
+        
+        let wrapper = TestLoggerWrapper()
+        let handler = wrapper.handler
+        
+        let targetTag = "TestTag"
+        Log.setTagFilters(tags: [targetTag]);
+        
+        let message1 = "Test"
+        
+        // TEST NO TAG
+        Log.e(message1)
+        XCTAssertFalse(handler.didLog)
+        XCTAssertNil(handler.messageLog)
+        XCTAssertNil(handler.messageTag)
+        XCTAssertNil(handler.messageLevel)
+        handler.reset()
+        
+        // TEST BAD_TAG
+        Log.e(message1, "BAD_TAG")
+        XCTAssertFalse(handler.didLog)
+        XCTAssertNil(handler.messageLog)
+        XCTAssertNil(handler.messageTag)
+        XCTAssertNil(handler.messageLevel)
+        handler.reset()
+        
+        // TEST VALID TAG
+        
+        Log.e(message1, targetTag)
+        XCTAssertTrue(handler.didLog)
+        
+        XCTAssertNotNil(handler.messageTag)
+        XCTAssertTrue(handler.messageTag == targetTag)
+        
+        handler.reset()
+        
+        Log.setTagFilters(tags: []);
+        
+        // Should now come through
+        Log.e(message1, "BAD_TAG")
+        XCTAssertTrue(handler.didLog)
+        handler.reset()
+        
+    }
+    
+    // Test the 'extra' part of a LogLine
+    func testILogExtra() {
+        let levelWrapper = TestLogLevelWrapper(level: LogLevel.debug)
+        
+        let wrapper = TestLoggerWrapper()
+        let handler = wrapper.handler
+        
+        let extraValid = "Extra"
+        Log.e("Test", extra: extraValid)
+        XCTAssertTrue(handler.didLog)
+        if let extraStr : String = handler.messageLog?.extra as? String {
+            XCTAssertTrue(extraStr == extraValid)
+        } else {
+            XCTAssertTrue(false)
+        }
+        handler.reset()
+        
+        Log.e("Test2")
+        XCTAssertTrue(handler.didLog)
+        if let _ : Float = handler.messageLog?.extra as? Float {
+            XCTAssertTrue(false)
+        }
+        handler.reset()
+        
+        let extraInt = 123
+        Log.e("test3", extra: extraInt)
+        if let extraInt : Int = handler.messageLog?.extra as? Int {
+            XCTAssertTrue(extraInt == extraInt)
+        } else {
+            XCTAssertTrue(false)
+        }
+        handler.reset()
     }
 }
