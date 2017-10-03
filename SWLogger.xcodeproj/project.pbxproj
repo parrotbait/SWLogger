@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D709ABA31F65C67E00CD546B /* SWLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D709AB991F65C67E00CD546B /* SWLogger.framework */; };
-		D709ABB81F65C72C00CD546B /* DefaultLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB31F65C72C00CD546B /* DefaultLogHandler.swift */; };
 		D709ABB91F65C72C00CD546B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB41F65C72C00CD546B /* Log.swift */; };
 		D709ABBA1F65C72C00CD546B /* LogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB51F65C72C00CD546B /* LogHandler.swift */; };
 		D709ABBB1F65C72C00CD546B /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB61F65C72C00CD546B /* LogLevel.swift */; };
 		D709ABBC1F65C72C00CD546B /* LogLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709ABB71F65C72C00CD546B /* LogLine.swift */; };
+		D765A9451F82E161000B67F0 /* DefaultFileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765A9431F82E161000B67F0 /* DefaultFileHandler.swift */; };
+		D765A9461F82E161000B67F0 /* DefaultLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765A9441F82E161000B67F0 /* DefaultLogHandler.swift */; };
+		D765A9491F82E233000B67F0 /* SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765A9481F82E233000B67F0 /* SwiftTests.swift */; };
 		D7CA96D01F798E7A00742A34 /* SWLogger.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D7CA96CF1F798E7A00742A34 /* SWLogger.podspec */; };
 /* End PBXBuildFile section */
 
@@ -31,11 +33,14 @@
 		D709AB9D1F65C67E00CD546B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D709ABA21F65C67E00CD546B /* SWLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SWLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D709ABA91F65C67E00CD546B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D709ABB31F65C72C00CD546B /* DefaultLogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLogHandler.swift; sourceTree = "<group>"; };
 		D709ABB41F65C72C00CD546B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D709ABB51F65C72C00CD546B /* LogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogHandler.swift; sourceTree = "<group>"; };
 		D709ABB61F65C72C00CD546B /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		D709ABB71F65C72C00CD546B /* LogLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLine.swift; sourceTree = "<group>"; };
+		D765A9431F82E161000B67F0 /* DefaultFileHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultFileHandler.swift; path = Handlers/DefaultFileHandler.swift; sourceTree = "<group>"; };
+		D765A9441F82E161000B67F0 /* DefaultLogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultLogHandler.swift; path = Handlers/DefaultLogHandler.swift; sourceTree = "<group>"; };
+		D765A9471F82E233000B67F0 /* SWLoggerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SWLoggerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		D765A9481F82E233000B67F0 /* SwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTests.swift; sourceTree = "<group>"; };
 		D7CA96CF1F798E7A00742A34 /* SWLogger.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SWLogger.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +85,7 @@
 		D709AB9B1F65C67E00CD546B /* SWLogger */ = {
 			isa = PBXGroup;
 			children = (
-				D709ABB31F65C72C00CD546B /* DefaultLogHandler.swift */,
+				D765A9421F82E14E000B67F0 /* Handlers */,
 				D709ABB41F65C72C00CD546B /* Log.swift */,
 				D709ABB51F65C72C00CD546B /* LogHandler.swift */,
 				D709ABB61F65C72C00CD546B /* LogLevel.swift */,
@@ -94,8 +99,19 @@
 			isa = PBXGroup;
 			children = (
 				D709ABA91F65C67E00CD546B /* Info.plist */,
+				D765A9481F82E233000B67F0 /* SwiftTests.swift */,
+				D765A9471F82E233000B67F0 /* SWLoggerTests-Bridging-Header.h */,
 			);
 			path = SWLoggerTests;
+			sourceTree = "<group>";
+		};
+		D765A9421F82E14E000B67F0 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				D765A9431F82E161000B67F0 /* DefaultFileHandler.swift */,
+				D765A9441F82E161000B67F0 /* DefaultLogHandler.swift */,
+			);
+			name = Handlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +182,7 @@
 					D709ABA11F65C67E00CD546B = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = XFV7ZQHJ8V;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -212,10 +229,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D709ABBA1F65C72C00CD546B /* LogHandler.swift in Sources */,
+				D765A9451F82E161000B67F0 /* DefaultFileHandler.swift in Sources */,
 				D709ABB91F65C72C00CD546B /* Log.swift in Sources */,
-				D709ABB81F65C72C00CD546B /* DefaultLogHandler.swift in Sources */,
 				D709ABBB1F65C72C00CD546B /* LogLevel.swift in Sources */,
 				D709ABBC1F65C72C00CD546B /* LogLine.swift in Sources */,
+				D765A9461F82E161000B67F0 /* DefaultLogHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D765A9491F82E233000B67F0 /* SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,11 +406,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = XFV7ZQHJ8V;
+				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = SWLoggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddielong.SWLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SWLoggerTests/SWLoggerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -400,11 +423,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = XFV7ZQHJ8V;
+				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = SWLoggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddielong.SWLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SWLoggerTests/SWLoggerTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

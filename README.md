@@ -16,6 +16,7 @@ See TODO section for more.
 # Usage
 
 Log a debug mesaage
+
 ```
 Log.d("My log")
 ```
@@ -35,11 +36,21 @@ Log a message with custom extra data
 Log.i("My message", "TAG", extra:123)
 ```
 
+Log levels available:
+
+* Verbose (Log.v)
+* Debug (Log.d)
+* Info (Log.i)
+* Warning (Log.w)
+* Error (Log.e)
+
 ## Filtering messages
 
-Set the log level for the app to warning (everything less than this will not be logged)
+By default in release only warning messages are allowed though. In debug, debug messages are allowed.
+
+Set the log level for the app to error (everything less than this will not be logged)
 ```
-Log.setLevel(level: .warning)
+Log.setLevel(level: .error)
 ```
 
 Filter logs by tag(s)
